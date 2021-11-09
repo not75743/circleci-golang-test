@@ -1,0 +1,14 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/golang:1.14.6
+    steps:
+      - checkout
+      - run:
+          name: go mot init
+          command: go mod init repo
+      - run:
+          name: Run tests
+          command: go test -v
